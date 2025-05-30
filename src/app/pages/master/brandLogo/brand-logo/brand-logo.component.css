@@ -1,0 +1,18 @@
+body{
+    background-color:#eaf1f6 ;
+}
+
+._addLogo{
+    border:1px solid rgba(0,0,0,0.175);
+    border-radius: 5px;
+}
+._clsFileDiv{
+    border:3px dashed blue ;
+    background-color: #c6e5fa;
+    padding:40px;
+    display: flex; 
+    justify-content: center;
+}
+._outerCard{
+    border:none
+}

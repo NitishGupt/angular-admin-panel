@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+._pageLabel {
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+._pageLabel:hover {
+  color: #f1948a;
+}
+.fa-pen-to-square:hover{
+  color: #f1948a;
+}
+.fa-square-minus:hover{
+  color: red;
+}
+
+.sidebar-link {
+  font-size: 14px !important;
+  color: black !important;
+}
+
+.sidebar-link i {
+  color: black !important;
+}
+
+.sidebar-link:hover,
+.sidebar-link:hover i {
+  color: #f1948a !important;
+  margin-left:1px;
+  transition: margin-left 0.3s ease, color 0.3s ease;
+}
+
+._navLink:hover {
+  color: #f1948a;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input[type='checkbox']:hover {
+  color: #f1948a;
+}
+
+#userSalesMenu .nav-link::before,
+#userAddMenu .nav-link::before,
+#productAddMenu .nav-link::before,
+#masterMenu .nav-link::before ,
+#userMgmtSubmenu .nav-link::before{
+  content: '◯';
+  margin-right: 8px;
+  font-size: 0.75rem;
+  color: black !important;
+}
+#userSalesMenu .nav-link:hover::before,
+#userAddMenu .nav-link:hover::before,
+#productAddMenu .nav-link:hover::before ,
+#masterMenu .nav-link:hover::before,
+#userMgmtSubmenu .nav-link:hover::before{
+  color: #0d76e7 !important;
+}

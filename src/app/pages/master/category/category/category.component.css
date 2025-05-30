@@ -1,0 +1,10 @@
+body{
+    background-color:#eaf1f6 ;
+}
+._clsFileDiv{
+    border:3px dashed skyblue ;
+    border-radius:5px;
+    background-color: #c6e5fa;
+    padding:30px;
+    text-align: center;
+}

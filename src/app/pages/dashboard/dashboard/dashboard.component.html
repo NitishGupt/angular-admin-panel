@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <p class="_pageLabel">Dashboard</p>
+  <div class=" d-flex gap-5 mt-3">
+    <div class="card _orders">
+      <div class="card-body ">
+        <div class="d-flex justify-content-between gap-5">
+          <div class="_orderIcon">
+            <i class="fa-solid fa-indian-rupee-sign" style="color: #FFD43B; font-size: 16px;"></i>
+          </div>
+          <div class="amount">
+            <div> Orders</div>
+            <div><i class="fa-solid fa-indian-rupee-sign fa-2xs"></i> 18580</div>
+            <div>this year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card _shippingAmount">
+        <div class="card-body">
+          <div class="d-flex justify-content-between gap-5">
+            <div class="_shippingIcon"><i class="fa-solid fa-indian-rupee-sign"
+                style="color: #13c9ca; font-size: 16px;"></i></div>
+            <div class="amount">
+              <div> Shipping Amount</div>
+              <div><i class="fa-solid fa-indian-rupee-sign fa-2xs"></i> 1880</div>
+              <div>this year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex mt-5 gap-5">
+    <div class="card _cashOnDel">
+      <div class="card-body">
+        <div class="d-flex justify-content-between gap-5">
+          <div class="_CODIcon"><i class="fa-solid fa-box-archive" style="color: #125fec;"></i></div>
+          <div class="amount">
+            <div>Cash On Delivery</div>
+            <div><i class="fa-solid fa-indian-rupee-sign fa-2xs"></i> 1880</div>
+            <div>this year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="secondRow">
+      <div class="card _cancelled">
+        <div class="card-body">
+          <div class="d-flex justify-content-between gap-5">
+            <div class="_cancelledIcon"><i class="fa-solid fa-ban" style="color: #a5a5a5;"></i></div>
+            <div class="amount">
+              <div> Cancelled</div>
+              <div><i class="fa-solid fa-indian-rupee-sign fa-2xs"></i> 1880</div>
+              <div>this year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="_clsDataTable mt-4">
+    <div class="card" style="border-radius:5px">
+      <div class="card-header left-0" style="font-weight:30px">Latest Order</div>
+      <div class="card-body" style="padding:5px">
+       <app-reuse-table [displayedColumns]="columnDefs" [rowdata]="userData" (rowClicked)="handleRowClick($event)"></app-reuse-table>
+      </div>
+    </div>
+
+  </div>
+</div>

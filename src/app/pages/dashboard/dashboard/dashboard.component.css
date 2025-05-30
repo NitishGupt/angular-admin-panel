@@ -1,0 +1,49 @@
+body{
+    background-color:#eaf1f6 ;
+}
+._shippingAmount{
+    background-color: #13c9ca!important;
+    color:white;
+    width:500px;
+    max-width: 550px;
+}
+.card{
+    border-radius: 30px;
+}
+.card-body{
+ padding:25px;
+}
+._orders{
+    background-color: #ffbc58!important;
+    color:white;
+    width:500px;
+    max-width: 550px;
+}
+._cashOnDel{
+    background-color: #125fec!important;
+    color:white;
+    width:500px;
+    max-width: 550px;
+
+}
+._cancelled{
+    background-color:#a5a5a5 !important;
+     color:white;
+     width:500px;
+    max-width: 550px;
+}
+._orderIcon,._shippingIcon, ._CODIcon, ._cancelledIcon{
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.card-header{
+    font-size: 18px;
+    font-weight: 700;
+}

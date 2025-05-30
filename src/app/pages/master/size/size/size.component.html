@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <p class="_pageLabel">Size Master</p>
+
+    <div class="card mt-2" style="border:none">
+        <div class="card-body">
+
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs" id="logoTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="add-tab" data-bs-toggle="tab" href="#_addLogo" role="tab"
+                        aria-controls="_addLogo" aria-selected="false">
+                        Add
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="view-tab" data-bs-toggle="tab" href="#_logoList" role="tab"
+                        aria-controls="_logoList" aria-selected="true">
+                        View
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab Contents -->
+            <div class="tab-content mt-3" id="logoTabsContent">
+                
+                    <div class="tab-pane fade col-12" id="_addLogo" role="tabpanel" aria-labelledby="add-tab">
+                        <div class="d-flex justify-content-between">
+                            <div class="card col-6" style="padding:30px">
+                                <div class="mt-2">
+                                    <label id="_lblLogoName" class="form-lable">Size<span
+                                            style="color:red">*</span></label>
+                                    <input id="_logoname" placeholder="Size" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" d-flex gap-2 mt-2">
+                            <button id="_addLogo" class="btn btn-primary">Add</button>
+                            <button id="_cancel" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+               
+
+                <div class="tab-pane fade show active" id="_logoList" role="tabpanel" aria-labelledby="view-tab">
+                    <app-reuse-table [displayedColumns]="columnDefs" [rowdata]="logoData"
+                        (rowClicked)="handleRowClick($event)"></app-reuse-table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

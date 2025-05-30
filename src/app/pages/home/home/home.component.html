@@ -1,0 +1,23 @@
+<!-- <div class="d-flex" style="min-height: 100vh;">
+  <app-sidenav></app-sidenav>
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+<div class="container-fluid p-0">
+  <app-navbar></app-navbar>
+  <div class="row with-navbar-offset mt-5">
+    <!-- Sidebar -->
+    <div class="col-auto p-0 bg-light" style="width: 220px;">
+      <app-sidenav></app-sidenav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col p-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+

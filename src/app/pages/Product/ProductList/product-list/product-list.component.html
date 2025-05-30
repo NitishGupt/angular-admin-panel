@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <p class="_pageLabel">Product List</p>
+    <div class="card mt-3 mb-3 _outerCard">
+        <div class="d-flex justify-content-end mt-1 me-3 mb-0" >
+            <a class="btn w-0" routerLink="/addProduct" style="background-color:#5556b3!important;color:white" ><i class="fa-solid fa-box"></i> ADD PRODUCT</a>
+        </div>
+        <div class="card-body mb-3">
+            <div class="tab-pane fade show active" id="_logoList" role="tabpanel" aria-labelledby="view-tab">
+                <app-reuse-table [displayedColumns]="columnDefs" [rowdata]="logoData"
+                    (rowClicked)="handleRowClick($event)"></app-reuse-table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+body{
+    background-color:#eaf1f6 ;
+}
+._productInfo,._productsize_category,._otherinfo,._productdescription{
+    border:1px solid rgba(0,0,0,0.175);
+    border-radius:5px;
+    background-color: white;
+}
+._pInfoLabel{
+    color:#414288;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+._cardDiv{
+    background-color:white;
+     padding:20px;
+     border-radius:5px;
+}

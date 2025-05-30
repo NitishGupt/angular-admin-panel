@@ -1,0 +1,6 @@
+body{
+    background-color:#eaf1f6 ;
+}
+.card {
+    --bs-card-spacer-y: 0.5rem !important;
+}

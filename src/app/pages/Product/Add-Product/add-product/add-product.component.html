@@ -1,0 +1,157 @@
+<div class="container-fluid">
+    <p class="_pageLabel ">Add Product</p>
+    <div class="_cardDiv mt-2">
+        <div class="_imgstore mt-2">
+            <div class="card mt-1">
+                <div class="d-flex justify-content-start gap-3 mt-2 ms-1 mb-1">
+                    <div>
+                        <img src="https://placehold.co/500x450" alt="User" class="user-image rounded" />
+                    </div>
+                    <div class="">
+                        <div class="mb-2"><img src="https://placehold.co/50x50" alt="User" class="user-image" /></div>
+                        <div class="mb-2"><img src="https://placehold.co/50x50" alt="User" class="user-image" /></div>
+                        <div class="mb-2"><img src="https://placehold.co/50x50" alt="User" class="user-image" /></div>
+                        <div class="mb-2"><img src="https://placehold.co/50x50" alt="User" class="user-image" /></div>
+                        <div class="mb-2"><img src="https://placehold.co/50x50" alt="User" class="user-image" /></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="_productInfo mt-2">
+            <p class="_pInfoLabel ms-2 mt-1">Product Info</p>
+            <div style="margin:10px">
+                <div class="mt-1">
+                    <label id="_pName" class="form-lable">Product Name<span style="color:red">*</span></label>
+                    <input id="_logoname" placeholder="Product Name" class="form-control">
+                </div>
+                <div class="mt-2">
+                    <label id="_lblTitle" class="form-lable">Title<span style="color:red">*</span></label>
+                    <input id="_ptitleName" placeholder="title" class="form-control">
+                </div>
+            </div>
+            <div style="margin:10px">
+                <div class="d-flex justify-content-between gap-1">
+                    <div class="col-6 mt-2">
+                        <label id="_lblsprice" class="form-lable">Sale Price<span style="color:red">*</span></label>
+                        <input id="_sprice" placeholder="Product Name" class="form-control">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label id="_lblDiscount" class="form-lable">Discount<span style="color:red">*</span></label>
+                        <input id="_discount" placeholder="title" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div style="margin:10px">
+                <div class="d-flex justify-content-between gap-1">
+                    <div class="col-6 mt-2">
+                        <label id="_lblpCode" class="form-lable">Code<span style="color:red">*</span></label>
+                        <input id="_pcode" placeholder="Product Name" class="form-control">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label id="_lblPrice" class="form-lable">Price<span style="color:red">*</span></label>
+                        <input id="_pPrice" placeholder="title" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_productsize_category mt-2">
+            <p class="_pInfoLabel ms-2 mt-1">Product size/Category</p>
+            <div style="margin:10px">
+                <div class="d-flex justify-content-between gap-1">
+                    <div class="col-6 mt-2">
+                        <label id="_lblsize" class="form-lable">Size<span style="color:red">*</span></label>
+                        <select id="_size" class="form-control" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <option value="0" selected="true">--Select Size--</option>
+                            <option value="1">XS</option>
+                            <option value="2">S</option>
+                            <option value="3">L</option>
+                        </select>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label id="_lblDiscount" class="form-lable">Category<span style="color:red">*</span></label>
+                        <select id="_size" class="form-control">
+                            <option value="0" selected="true">--Select Category--</option>
+                            <option value="1">Men</option>
+                            <option value="2">Women</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div style="margin:10px">
+                <div class="d-flex justify-content-between gap-1">
+                    <div class="col-6 mt-2">
+                        <label id="_lblbrand" class="form-lable">Brand<span style="color:red">*</span></label>
+                        <select id="_brand" class="form-control">
+                            <option value="0" selected="true">--Select tag--</option>
+                            <option value="1">Roadster</option>
+                            <option value="2">Allen Solly</option>
+                            <option value="3">US POLO</option>
+                        </select>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label id="_lblcolor" class="form-lable">Color<span style="color:red">*</span></label>
+                        <select id="_color" class="form-control">
+                            <option value="0" selected="true">--Select Color--</option>
+                            <option value="1">Men</option>
+                            <option value="2">Women</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_otherinfo mt-2">
+            <p class="_pInfoLabel ms-2 mt-1">Other Info</p>
+            <div style="margin:10px">
+                <div class="d-flex justify-content-between gap-1">
+                    <div class=" mt-2">
+                        <label id="_lblsize" class="form-lable">Total Products<span style="color:red">*</span></label>
+                        <div class="d-flex justify-content-start align-items-stretch">
+                            <span class="d-flex align-items-center px-2 bg-light border rounded"
+                                [class.disabled]="count === 0" (click)="count > 0 && removeCount()">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #74C0FC; cursor: pointer;"></i>
+                            </span>
+                            <input id="_count" type="number" placeholder="0" class="form-control" value="{{count}}" />
+                            <span class="d-flex align-items-center px-2 bg-light border rounded" (click)="addCount()">
+                                <i class="fa-solid fa-square-plus fa-lg" style="color: #74C0FC; cursor: pointer;"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="me-5  mt-2">
+                        <div>
+                            <input id="_chnkSale" type="checkbox"> Select for mark this product for sale
+                        </div>
+                        <div>
+                            <input id="_chnkNew" type="checkbox"> Select for mark this product for new
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="_productdescription mt-2">
+            <p class="_pInfoLabel ms-2 mt-1">Product Description</p>
+            <div style="margin:10px">
+
+                <div class=" mt-2">
+                    <label id="_lbldetails" class="form-lable">Short Details<span style="color:red">*</span></label>
+                    <textarea id="_pDetails" placeholder="Product Short Details" class="form-control"></textarea>
+
+                </div>
+                <div class=" mt-2 mb-4">
+                    <label id="_lblDescription" class="form-lable">Description<span style="color:red">*</span></label>
+                    <ngx-editor [editor]="editor" [(ngModel)]="htmlContent"></ngx-editor>
+                </div>
+
+            </div>
+        </div>
+        <div class="_btnGroup d-flex justify-content-center gap-3 mt-2">
+            <a id="_addProduct" class="btn btn-primary"> Update</a>
+            <a id="_ProductCancel" class="btn btn-secondary"  routerLink="/ProductList"> Cancel</a>
+        </div>
+    </div>
+
+
+</div>

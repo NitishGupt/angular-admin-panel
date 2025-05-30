@@ -1,0 +1,134 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <nav class="sidebar bg-light border-end vh-100 p-3" style="width: 220px;">
+    <!-- side nav ProfileImage -->
+    <div class="_ClsUserInfo mb-1">
+      <div class="user-container">
+        <img src="https://placehold.co/50x50" alt="User" class="user-image" />
+        <div class="user-details">
+          <span class="user-name">Nitish Gupta</span>
+          <span class="user-email">nitish&#64;gmail.com</span>
+        </div>
+      </div>
+    </div>
+    <!-- --- -->
+
+    <ul class="nav flex-column _clsNavBar">
+      <!-- Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link sidebar-link" routerLink="dashboard"><span><i
+              class="fa-solid fa-house-user sidebar-icon"></i></span>
+          DashBoard</a>
+      </li>
+      <!-- Dashboard End -->
+      <!-- User Managment -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center sidebar-link" data-bs-toggle="collapse"
+          href="#userMgmtSubmenu" role="button" aria-expanded="false" aria-controls="userMgmtSubmenu">
+          <span class=""><i class="fa-solid fa-users sidebar-icon"></i> User Management</span>
+          <i class="fa-solid fa-chevron-right toggle-icon"></i>
+        </a>
+        <ul class="nav flex-column collapse ps-3" id="userMgmtSubmenu">
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Module</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Sub Module</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Page Master</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Menu Config</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">User Right Master</a></li>
+        </ul>
+      </li>
+      <!-- User Managment Ends -->
+      <!-- Masters -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center sidebar-link" data-bs-toggle="collapse"
+          href="#masterMenu" role="button" aria-expanded="false" aria-controls="masterMenu">
+          <span class=""><i class="fa-solid fa-user-plus sidebar-icon"></i> Masters</span>
+          <i class="fa-solid fa-chevron-right toggle-icon"></i>
+        </a>
+        <ul class="nav flex-column collapse ps-3" id="masterMenu">
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="brandLogo">Brand Logo</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="category">Category</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="size">Size</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="color">Color</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="usertype">User Type</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Product Master Status</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link">Product Master Mapping</a></li>
+        </ul>
+      </li>
+      <!-- Masters End -->
+      <!-- Productss -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center _navLink sidebar-link"
+          data-bs-toggle="collapse" href="#productAddMenu" role="button" aria-expanded="false"
+          aria-controls="productAddMenu">
+          <span class=""><i class="fa-solid fa-box-open sidebar-icon"></i> Products</span>
+          <i class="fa-solid fa-chevron-right toggle-icon"></i>
+        </a>
+        <ul class="nav flex-column collapse ps-3" id="productAddMenu">
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="ProductList">Product List</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="addProduct">Add Product</a></li>
+        </ul>
+      </li>
+      <!-- Products End -->
+
+      <!-- Users -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center _navLink sidebar-link"
+          data-bs-toggle="collapse" href="#userAddMenu" role="button" aria-expanded="false" aria-controls="userAddMenu">
+          <span class=""><i class="fa-solid fa-user-plus sidebar-icon"></i> User</span>
+          <i class="fa-solid fa-chevron-right toggle-icon"></i>
+        </a>
+        <ul class="nav flex-column collapse ps-3" id="userAddMenu">
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="userList">User List</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" routerLink="addUser">Add User</a></li>
+        </ul>
+      </li>
+      <!-- Users End -->
+      <!-- Sales -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center _navLink sidebar-link"
+          data-bs-toggle="collapse" href="#userSalesMenu" role="button" aria-expanded="false" aria-controls="userSalesMenu">
+          <span class=""><i class="fa-solid fa-indian-rupee-sign sidebar-icon"></i> Sales</span>
+          <i class="fa-solid fa-chevron-right toggle-icon"></i>
+        </a>
+        <ul class="nav flex-column collapse ps-3" id="userSalesMenu">
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" >Orders</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" >Transactions</a></li>
+          <li class="nav-item"><a class="nav-link text-dark sidebar-link" >Manage Orders</a></li>
+        </ul>
+      </li>
+      <!-- Sales End -->
+
+      <!-- Invoice -->
+      <li class="nav-item">
+        <a class="nav-link sidebar-link"><i class="fa-solid fa-signal sidebar-icon"></i> Invoice</a>
+      </li>
+      <!-- Invoice End -->
+
+      <!-- Reports -->
+      <li class="nav-item">
+        <a class="nav-link sidebar-link"><i class="fa-solid fa-table sidebar-icon"></i> Reports</a>
+      </li>
+      <!-- Reports End -->
+
+      <!-- Profile -->
+      <li class="nav-item">
+        <a class="nav-link sidebar-link" routerLink="/profile"><i class="fa-solid fa-user sidebar-icon"></i> Profile</a>
+      </li>
+      <!-- Profile End -->
+
+      <!-- Setting -->
+      <!-- <li class="nav-item">
+        <a class="nav-link sidebar-link" routerLink="settings" routerLinkActive="active"><i
+            class="fa-solid fa-gears sidebar-icon"></i> Settings</a>
+      </li> -->
+      <!-- Setting End -->
+
+      <!-- Logout -->
+      <li class="nav-item">
+        <a class="nav-link text-danger sidebar-link" routerLink="/logout"><i
+            class="fa-solid fa-right-from-bracket sidebar-icon" style="color:rgb(248, 136, 136)"></i> Logout</a>
+      </li>
+      <!-- Logout End -->
+    </ul>
+  </nav>
+</div>
