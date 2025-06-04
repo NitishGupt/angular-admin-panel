@@ -1,47 +1,68 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserserviceService } from '../../../shared/services/services/userservice.service';
+import { User } from '../../../shared/model/user';
+
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 
 export class LoginComponent {
 
-  user: User = new User('', '', '');
-  constructor(private router:Router) { }
-  onSubmit(form: any) {
-    debugger;
-    const role = form.value.userRole === '1' ? 'admin' : 'user';
-    const email = form.value.userEmail;
-    const password = form.value.userPassword;
-    const userList = JSON.parse(localStorage.getItem('userList') || '[]');
-    const loggedInUser = userList.find(
-      (user: User) =>
-        user.userRole === role &&
-        user.userEmail === email &&
-        user.userPassword === password
-    );
+  registrationForm!: FormGroup;
+  loginform!: FormGroup;
+  constructor(private fb: FormBuilder,
+     private _authservice: UserserviceService,
+    private router:Router) { }
 
-    if (loggedInUser) {
+  ngOnInit() {
 
-      localStorage.setItem('currentUser', JSON.stringify(loggedInUser));
-      this.router.navigate(['/dashboard']); 
-    } else {
-      alert('Invalid credentials');
+    this.loginform = this.fb.group({
+      logEmail: ['guest', [Validators.required, Validators.email]],
+      logPassword: ['123456', [Validators.required, Validators.minLength(6)]],
+    });
+
+    this.registrationForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+  onSubmitlog() {
+    console.log('Guest LoggedIn');
+  }
+  onSubmit() {
+    alert('Register Now is clicked')
+    if (this.registrationForm.invalid) {
+      return;
     }
+    console.log(this.registrationForm.value);
+  }
+
+  guestLogin() {
+    const guestUser: User = {
+      id: 1,
+      firstName: 'Guest-User',
+      email: 'guest@example.com',
+      lastName: 'Guest',
+      password: '123456',
+      role: 'Guest'
+    };
+    this._authservice.login(guestUser);
+     this.router.navigate(['/dashboard']);
   }
 }
-class User {
-  constructor(
-    public userRole: string,
-    public userEmail: string,
-    public userPassword: string
-  ) {}
-}
+
+
 

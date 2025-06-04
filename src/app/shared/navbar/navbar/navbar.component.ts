@@ -1,20 +1,30 @@
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
+import { UserserviceService } from '../../services/services/userservice.service';
+import { User } from '../../../shared/model/user';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  currentUser:string=''
-ngOninit(){
-   const currentuser1 = localStorage.getItem('currentUser')
-   if(currentuser1){
-     const currentUser2=JSON.parse(currentuser1)
-     this.currentUser=currentUser2.userRole
-   }
+  currentUserName: string = ''
+  isLoggedIn: boolean = false;
+  constructor(private _authService: UserserviceService) { }
+  ngOnInit(): void {
+    this._authService.currentUser.subscribe((user: User | null) => {
+       if (user) {
+        this.isLoggedIn = true;
+        this.currentUserName = user.firstName;
+      } else {
+        this.currentUserName = '';
+      }
+    });
+  }
 }
-}
+
+
+

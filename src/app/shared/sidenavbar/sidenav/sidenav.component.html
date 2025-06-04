@@ -6,8 +6,9 @@
       <div class="user-container">
         <img src="https://placehold.co/50x50" alt="User" class="user-image" />
         <div class="user-details">
-          <span class="user-name">Nitish Gupta</span>
-          <span class="user-email">nitish&#64;gmail.com</span>
+        
+          <span class="user-name">{{currentUser}}</span>
+          <span class="user-email">{{currentUserEmail}}</span>
         </div>
       </div>
     </div>
@@ -125,8 +126,8 @@
 
       <!-- Logout -->
       <li class="nav-item">
-        <a class="nav-link text-danger sidebar-link" routerLink="/logout"><i
-            class="fa-solid fa-right-from-bracket sidebar-icon" style="color:rgb(248, 136, 136)"></i> Logout</a>
+        <button class="nav-link text-danger sidebar-link" type="button" routerLink="/login" (click)="logout()"><i
+            class="fa-solid fa-right-from-bracket sidebar-icon" style="color:rgb(248, 136, 136)"></i> Logout </button>
       </li>
       <!-- Logout End -->
     </ul>

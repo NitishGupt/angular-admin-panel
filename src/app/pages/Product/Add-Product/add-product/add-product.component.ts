@@ -17,10 +17,10 @@ export class AddProductComponent {
   editor!: Editor;
 
   ngOnInit() {
-    this.editor = new Editor();
+  
   }
   ngOnDestroy(): void {
-    this.editor?.destroy();
+   
   }
 
   addCount() {

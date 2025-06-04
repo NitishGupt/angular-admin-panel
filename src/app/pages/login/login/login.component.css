@@ -1,0 +1,103 @@
+body {
+    background-color: #583672;
+
+}
+
+._divLogin {
+    background: linear-gradient(-45deg, #dcd7e0, #fff);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+._divParent {
+    background: linear-gradient(-45deg, #dcd7e0, #fff);
+}
+
+._divImage {
+    border-radius: 5px;
+    background-color: #faf4d8;
+}
+
+.card-body {
+    padding: 0px !important;
+}
+
+#_btnSignin {
+    background-color: #583672;
+    color: white;
+}
+
+#_btnVendorRegis {
+    background-color: #23d84136;
+    color: black;
+}
+
+button {
+    font-size: small;
+    font-weight: bold
+}
+
+#_btnVendorRegis,
+#_btnSignin {
+    font-size: small !important;
+    font-weight: bold !important;
+    border: none !important;
+    padding: 5px 60px !important;
+    border-radius: 8px !important;
+    margin: 30px auto auto !important;
+}
+
+#signin-tab,
+#vender-tab {
+    font-size: small;
+    font-weight: bold;
+    color: black;
+}
+
+#signin-tab:hover,
+#vender-tab:hover {
+    color: #583672;
+}
+
+#_btnVendorRegistration {
+    border: none;
+    padding: 10px 60px;
+    border-radius: 8px;
+    margin: 40px auto auto;
+    background: #583672;
+    color: #fff;
+    font-weight: 700;
+}
+input.form-control {
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.175); 
+  border-radius: 0;
+  box-shadow: none;
+}
+
+input.form-control:focus {
+  border-bottom: 2px solid rgba(0,0,0,0.175); 
+  outline: none;
+  box-shadow: none;
+}
+
+.nav-tabs .nav-link {
+  color: #555;
+  background-color: #f8f9fa;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #d4d7fc ;  /* Bootstrap primary */
+  color: white;
+  border-color: #dee2e6 #dee2e6 #fff;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #e9ecef;
+  color: #0d6efd;
+}
+

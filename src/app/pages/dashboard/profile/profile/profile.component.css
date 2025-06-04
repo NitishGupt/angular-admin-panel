@@ -1,12 +1,18 @@
+body {
+ background-color:#eaf1f6 ; 
+}
+
 .user-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .user-image {
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* Makes the image a circle */
+  border-radius: 50%;
+  /* Makes the image a circle */
   object-fit: cover;
   margin-bottom: 0.5rem;
 }
@@ -28,12 +34,13 @@
 }
 
 
-._uploadFile{
-border-color: #87caf9;
-background-color: #d6eaf8;
-border:dashed;
-margin:10px;
+._uploadFile {
+  border-color: #87caf9;
+  background-color: #d6eaf8;
+  border: dashed;
+  margin: 10px;
 }
-body{
-   background-color: #ccc;
+
+body {
+  background-color: #ccc;
 }

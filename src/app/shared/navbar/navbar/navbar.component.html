@@ -1,6 +1,6 @@
-
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light w-100">
-  <span class="_navheaderIcon"><a class="navbar-brand ms-3" href="#"><i class="fa-solid fa-shop-lock icon" ></i> Stores</a></span>
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light w-100">
+  <span class="_navheaderIcon"><a class="navbar-brand ms-3" href="#"><i class="fa-solid fa-shop-lock icon"></i>
+      Stores</a></span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,30 +11,31 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
-       <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link">Contact</a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" >About us</a>
-      </li>
       <li class="nav-item">
+        <a class="nav-link">About us</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link" routerLink="login">Login</a>
       </li>
     </ul>
   </div>
 
-  <div class="user-wrapper " style="position: relative; display: inline-block;">
+  <div class="user-wrapper" *ngIf="isLoggedIn" style="position: relative; ">
     <span class="user-container _logSessionIcon me-3 ">
       <img src="https://placehold.co/50x50" alt="User" class="user-image" />
     </span>
 
-
-    <div class="_clsProfileConfig" style="display: none; position: absolute; top: 60px; right: 0;">
-      <div class="card">
-        <div class="card-body">
-          <a class="" routerLink="/profile"><i class="fa-solid fa-user sidebar-icon"></i> Edit Profile</a>
-          <a><i class="fa-solid fa-right-from-bracket sidebar-icon" style="color:rgb(248, 136, 136)"></i> LogOut</a>
+    <div class="_clsProfileConfig">
+      <div class="_userInfo">
+        <div id="_userfname"><small><i class="fa-solid fa-user sidebar-icon"></i> {{currentUserName}}</small></div>
+        <hr />
+        <div class="mt-1"><a class="" routerLink="/profile"><i class="fa-solid fa-user-pen"></i> Edit Profile</a></div>
+        <div class="mt-1"><a routerLink="/login"><i class="fa-solid fa-right-from-bracket sidebar-icon" style="color:rgb(248, 136, 136)"></i> LogOut</a>
         </div>
+
       </div>
     </div>
   </div>

@@ -1,23 +1,67 @@
-<div class="d-flex justify-content-center align-items-center mt-5">
-<div class="card col-6 d-flex justify-content-center" >
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
-        <div class="card-body text-center">
-            <h5 class="card-title">Login</h5>
-            <!-- [(ngModel)]="" -->
-            <div class="row">
-                <select id="_userRole" class="form-control" name="userRole" [(ngModel)]="user.userRole" >
-                    <option value="0" selected="true">Select User Role</option>
-                    <option value="1">Admin</option>
-                    <option value="2">User</option>
-                </select>
-                <input id="_email" placeholder="Email" name="userEmail" class="form-control mt-2" [(ngModel)]="user.userEmail" />
-                <input id="_password" placeholder="Password" name="userPassword" class="form-control mt-2" [(ngModel)]="user.userPassword" />
-            </div>
-            <div class="mt-2">
-                <button id="_login" type="button" class="btn btn-primary me-1 w-100" [disabled]="loginForm.invalid" (click)="onSubmit(loginForm)">Login</button>
-            </div>
+<div class="d-flex justify-content-center align-items-center rounded" style="height: 100vh">
     
+        <div class="d-flex justify-content-between _divParent">
+            <!-- Left side (Tabs and form) -->
+            <div class="me-4" style="min-width: 400px;">
+                <!-- Nav Tabs -->
+                <ul class="nav nav-tabs mt-2" id="logoTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="signin-tab" data-bs-toggle="tab" href="#_signin" role="tab"
+                            aria-controls="_signin" aria-selected="false">
+                            <i class="fa-solid fa-lock-open"></i> SIGN IN
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link " id="vender-tab" data-bs-toggle="tab" href="#_venderRegistration" role="tab"
+                            aria-controls="_venderRegistration" aria-selected="true">
+                            <i class="fa-solid fa-user"></i> Vender Registration
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab Contents -->
+                <div class="tab-content mt-3" id="logoTabsContent">
+                    <!-- Sign In Tab -->
+                    <form [formGroup]="loginform" (ngSubmit)="onSubmitlog()">
+                        <div class="tab-pane fade show active ms-2" id="_signin" role="tabpanel"
+                            aria-labelledby="signin-tab">
+                            <div class="ms-2">
+                                <input id="_userName" formControlName="logEmail" placeholder="User Name" class="form-control mt-2" />
+                                <input id="_userPassword" type="password" formControlName="logPassword" placeholder="Password" type="password"
+                                    class="form-control mt-2" />
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <a id="_btnSignin" class="btn btn-primary w-50" [class.disabled]="loginform.invalid">LET'S GO</a>
+                            </div>
+                            <div class="text-center mt-1">
+                                <button id="_btnVendorRegis" type="button" (click)="guestLogin()" class="btn btn-secondary w-50 ">GUEST LOGIN</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <!-- Vendor Registration Tab -->
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                        <div class="tab-pane fade " id="_venderRegistration" role="tabpanel"
+                            aria-labelledby="vender-tab">
+                            <div class="ms-2">
+                                <input id="_fName" formControlName="firstName"  placeholder="First Name" class="form-control mt-2" />
+                                <input id="_lName" formControlName="lastName"  placeholder="Last Name" class="form-control mt-2" />
+                                <input id="_emailreg" formControlName="email"  placeholder="Email Name" class="form-control mt-2" />
+                                <input id="__venPassword" type="password" formControlName="password"  placeholder="Password" class="form-control mt-2" />
+                                <input id="__ConvenPassword" formControlName="confirmPassword"  placeholder="Conform Password" class="form-control mt-2" />
+                            </div>
+                            <div class="d-flex justify-content-center">
+                               <button id="_btnVendorRegistration" type="submit" class="btn btn-secondary w-75">Register Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Right side (Image) -->
+            <div class="_divImage">
+                <img src="https://placehold.co/500x500" alt="User" class="user-image" />
+            </div>
         </div>
-    </form>
-  </div>
 </div>
