@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Router } from '@angular/router';
 import { User } from '../../model/user';
 import { UserserviceService } from '../../services/services/userservice.service';
 
@@ -13,21 +13,25 @@ import { UserserviceService } from '../../services/services/userservice.service'
 export class SidenavComponent {
   currentUser: string = '';
   currentUserEmail: string = '';
-  constructor(private authService: UserserviceService) { }
+  isLoggedIn: boolean = false;
+  
+  constructor(private authService: UserserviceService, private router:Router) { }
   ngOnInit() {
     this.authService.currentUser.subscribe((user: User | null) => {
       if (user) {
+        this.isLoggedIn = true;
         this.currentUser = user.firstName;
         this.currentUserEmail = user.email;
       }
     })
   }
 
-  
+
   logout() {
     this.authService.logout();
     this.currentUser = '';
     this.currentUserEmail = '';
+    this.router.navigate(['/login']);
   }
 
 }

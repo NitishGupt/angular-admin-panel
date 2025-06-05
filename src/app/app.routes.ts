@@ -4,7 +4,6 @@ import { authChildGuard } from './shared/services/guard/auth-child.guard';
 
 export const routes: Routes = [
   {
-
     path: '',
     canActivateChild: [authChildGuard],
     loadComponent: () => import('./pages/home/home/home.component').then(m => m.HomeComponent),
@@ -65,7 +64,6 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/Product/ProductList/product-list/product-list.component').then((m) => m.ProductListComponent),
         title: 'Product List'
       },
-
     ],
     title: 'Home'
   },
@@ -74,4 +72,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login/login.component').then(m => m.LoginComponent),
     title: 'login'
   },
+  {
+    path:'contact',
+    loadComponent:()=>import('./pages/Contact/contact/contact.component').then(m=>m.ContactComponent),
+    title:'Contact'
+  },
+  {
+    path:'about',
+    loadComponent:()=>import('./pages/About/about/about.component').then(m=>m.AboutComponent), 
+    title:'About'
+  }
 ];

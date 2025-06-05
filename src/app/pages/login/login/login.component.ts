@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserserviceService } from '../../../shared/services/services/userservice.service';
 import { User } from '../../../shared/model/user';
 
@@ -10,10 +10,10 @@ import { User } from '../../../shared/model/user';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule,RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 
 export class LoginComponent {
@@ -43,11 +43,20 @@ export class LoginComponent {
     console.log('Guest LoggedIn');
   }
   onSubmit() {
+    console.log(this.registrationForm.value);
     alert('Register Now is clicked')
     if (this.registrationForm.invalid) {
       return;
     }
-    console.log(this.registrationForm.value);
+  const user:User={
+    id: 'V001',
+    firstName:this.registrationForm.value.firstName,
+    lastName:this.registrationForm.value.lastName,
+    email:this.registrationForm.value.email,
+    password:this.registrationForm.value.password,
+    role:'vender'
+  }
+    console.log(user);
   }
 
   guestLogin() {
