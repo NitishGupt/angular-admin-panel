@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../../../shared/model/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
-    constructor() { }
+  constructor(private _httpClient: HttpClient) { }
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   currentUser = this.currentUserSubject.asObservable();
 
@@ -20,5 +21,12 @@ export class UserserviceService {
 
   getCurrentUser(): User | null {
     return this.currentUserSubject.value;
+  }
+
+  getUserList() {
+    return this._httpClient.get<User[]>('http://localhost:3000/api/users');
+  }
+  getUserById(id: string) {
+     return this._httpClient.get<User>(`http://localhost:3000/api/users/${id}`);
   }
 }

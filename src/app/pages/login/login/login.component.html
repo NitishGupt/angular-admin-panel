@@ -11,13 +11,13 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="signin-tab" data-bs-toggle="tab" href="#_signin" role="tab"
                             aria-controls="_signin" aria-selected="false">
-                            <i class="fa-solid fa-lock-open"></i> SIGN IN
+                            <i class="fa-solid fa-lock-open"></i> Sign in
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link " id="vender-tab" data-bs-toggle="tab" href="#_venderRegistration" role="tab"
                             aria-controls="_venderRegistration" aria-selected="true">
-                            <i class="fa-solid fa-user"></i> User Signup
+                            <i class="fa-solid fa-user-plus"></i> Sign up
                         </a>
                     </li>
                 </ul>
@@ -30,10 +30,16 @@
 
                         <form [formGroup]="loginform" (ngSubmit)="onSubmitlog()">
                             <div class="ms-2">
-                                <input id="_userName" formControlName="logEmail" placeholder="User Name"
+                                <input id="_userName" formControlName="logEmail" placeholder="User email"
                                     class="form-control mt-2" />
+                                    @if(lf['logEmail'].touched && lf['logEmail'].invalid){
+                                    <div><small class="error-message">email is required</small></div>
+                                    }
                                 <input id="_userPassword" type="password" formControlName="logPassword"
                                     placeholder="Password" type="password" class="form-control mt-2" />
+                                    @if(lf['logPassword'].touched && lf['logPassword'].invalid){
+                                    <div><small class="error-message">password is required</small></div>
+                                    }
                             </div>
 
                             <div class="text-center mt-3">
@@ -53,14 +59,41 @@
                             <div class="ms-2">
                                 <input id="_fName" formControlName="firstName" placeholder="First Name"
                                     class="form-control mt-2" />
+                                @if(f['firstName'].touched && f['firstName'].invalid){
+                                <div>
+                                    <small class="error-message">First name is
+                                        required.</small>
+                                </div>
+                                }
                                 <input id="_lName" formControlName="lastName" placeholder="Last Name"
                                     class="form-control mt-2" />
+                                @if(f['lastName'].touched && f['lastName'].invalid){
+                                <div>
+                                    <small class="error-message">Last Name is required.</small>
+                                </div>
+                                }
+
                                 <input id="_emailreg" formControlName="email" placeholder="Email Name"
                                     class="form-control mt-2" />
-                                <input id="__venPassword" type="password" formControlName="password"
-                                    placeholder="Password" class="form-control mt-2" />
+                                @if(f['email'].touched && f['email'].invalid){
+                                <div><small class="error-message">email is required</small></div>
+                                }
+
+                                <input id="__venPassword" [ngStyle]="{
+                                       'border-bottom': passwordMatch ? '1px solid rgba(0,0,0,0.175)' : '1px solid red' }"
+                                       type="password" formControlName="password" placeholder="Password" class="form-control mt-2" />
+                                @if(f['password'].touched && f['password'].invalid){
+                                <div><small class="error-message">password is required</small></div>
+                                }
                                 <input id="__ConvenPassword" formControlName="confirmPassword"
-                                    placeholder="Conform Password" class="form-control mt-2" />
+                                    placeholder="Confirm Password" class="form-control mt-2" />
+                                @if(f['confirmPassword'].touched && f['confirmPassword'].invalid){
+                                <div><small class="error-message">confirm password is required</small></div>
+                                }
+                                @if(f['password'].value!== f['confirmPassword'].value){
+                                    <div><small class="error-message">password do not match</small></div>
+                                }
+
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button id="_btnVendorRegistration" type="submit"
