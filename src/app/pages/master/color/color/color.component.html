@@ -22,29 +22,39 @@
 
             <!-- Tab Contents -->
             <div class="tab-content mt-3" id="logoTabsContent">
-                
-                    <div class="tab-pane fade col-12" id="_addLogo" role="tabpanel" aria-labelledby="add-tab">
+
+                <div class="tab-pane fade col-12" id="_addLogo" role="tabpanel" aria-labelledby="add-tab">
+                    <form [formGroup]="colorForm" (ngSubmit)="onSubmit()">
                         <div class="d-flex justify-content-between">
                             <div class="card col-6" style="padding:30px">
                                 <div class="mt-2">
                                     <label id="_lblLogoName" class="form-lable">Color<span
                                             style="color:red">*</span></label>
-                                    <input id="_colorname" placeholder="Name" class="form-control">
+                                    <input id="_colorname" placeholder="Name" formControlName="name"
+                                        class="form-control">
+                                    @if(f['name'].touched && f['name'].invalid) {
+                                    <div><small class="error-message">Color name is required.</small></div>
+                                    }
                                 </div>
                                 <div class="mt-2">
                                     <label id="_lblLogoName" class="form-lable">Code<span
                                             style="color:red">*</span></label>
-                                    <input id="_colorCode" placeholder="Code" class="form-control">
-                                    <!-- <i class="fa-solid fa-paint-roller" style="color: #B197FC;"></i> -->
+                                    <input id="_colorCode" formControlName="code" placeholder="Code"
+                                        class="form-control">
+                                    @if(f['code'].touched && f['code'].invalid) {
+                                    <div><small class="error-message">Color code is required.</small></div>
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div class=" d-flex gap-2 mt-2">
-                            <button id="_addLogo" class="btn btn-primary">Add</button>
+                            <button id="_addLogo" type="submit" class="btn btn-primary">Add</button>
                             <button id="_cancel" class="btn btn-secondary">Cancel</button>
                         </div>
-                    </div>
-               
+                    </form>
+
+                </div>
+
 
                 <div class="tab-pane fade show active" id="_logoList" role="tabpanel" aria-labelledby="view-tab">
                     <app-reuse-table [displayedColumns]="columnDefs" [rowdata]="logoData"
@@ -55,4 +65,3 @@
         </div>
     </div>
 </div>
-

@@ -1,67 +1,90 @@
-<div>
+<div class="container-fluid">
   <p class="_pageLabel">User Profile</p>
-</div>
-<div class="d-flex justify-content-center gap-4">
-  <div class="">
-    <div class="card">
-      <div class="card-body">
-        <div class="user-container">
-          <img src="https://placehold.co/150x150" alt="User" class="user-image" />
-          <div class="user-details">
-            <span class="user-name">{{userfName}}</span>
-            <span class="user-email">{{userEmail}}</span>
-          </div>
-        </div>
-        <div class="mt-2">
-          <a class="btn btn-primary w-100 mt-2" href="https://faccebook.com"><i class="fa-brands fa-facebook"></i> facebook</a>
-          
-          <button class="btn btn-secondary w-100 mt-2"><i class="fa-brands fa-google-plus"></i> email</button>
-          <button class="btn btn-info w-100 mt-2"> <i class="fa-brands fa-square-x-twitter"></i> twitter</button>
 
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <div class="me-1">
-    <div>
+  <div class="d-flex justify-content-center gap-4 mt-2 _outerDiv">
+    <div class="">
       <div class="card">
         <div class="card-body">
           <div class="user-container">
-            <p class="left-2">Profile</p>
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr style="border-bottom: 1px solid #ccc;">
-                <td style=" padding: 8px;">First Name : </td>
-                <td style="padding: 8px;">{{userfName}}</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #ccc;">
-                <td style=" padding: 8px;">Last Name : </td>
-                <td style="padding: 8px;">{{userLName}}</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #ccc;">
-                <td style=" padding: 8px;">Email : </td>
-                <td style="padding: 8px;">{{userEmail}}</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #ccc;">
-                <td style="padding: 8px;">User Type : </td>
-                <td style="padding: 8px;">{{userRole}}</td>
-              </tr>
-            </table>
+            <img [src]="previewUrl" alt="User" class="user-image" />
+            <div class="user-details">
+              <span class="user-name">{{userfName}}</span>
+              <span class="user-email">{{userEmail}}</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <a class="btn btn-primary w-100 mt-2" href="https://faccebook.com"><i class="fa-brands fa-facebook"></i>
+              facebook</a>
+
+            <button class="btn btn-secondary w-100 mt-2"><i class="fa-brands fa-google-plus"></i> email</button>
+            <button class="btn btn-info w-100 mt-2"> <i class="fa-brands fa-square-x-twitter"></i> twitter</button>
 
           </div>
 
         </div>
       </div>
     </div>
-    <div>
-      <div class="card mt-4" style="height:100px">
-        <div class="card-body _uploadFile">
-          <div class="user-container">
-            <input type="file" name="" id="_profileImage">
+    <div class="me-1">
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <div class="user-container">
+              <div class="d-flex justify-content-between" style="width:100%;background-color:#f4f6f6;padding:3px;">
+                <div class="mt-1">
+                  <p class="_pInfo">Profile</p>
+                </div>
+                <div class="d-flex justify-content-between gap-1 mt-1">
+                  <div *ngIf="!updateProfile"><i class="fa-solid fa-pen-to-square _edit-profile"
+                      (click)="editProfile()"></i></div>
+                  <div *ngIf="updateProfile"><i class="fa-solid fa-square-check _update-profile"
+                      title="Update Profile"></i></div>
+                  <div *ngIf="updateProfile"><i class="fa-solid fa-xmark _cancel-update" (click)="cancelUpdate(fileInput)"></i>
+                  </div>
+                </div>
+              </div>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr style="border-bottom: 1px solid #ccc;">
+                  <td style=" padding: 8px;">First Name : </td>
+                  <td *ngIf="!updateProfile" style="padding: 8px;">{{userfName}}</td>
+                  <td *ngIf="updateProfile" style="padding: 8px;">
+                    <input [value]="userfName" class="form-control" />
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid #ccc;">
+                  <td style=" padding: 8px;">Last Name : </td>
+                  <td *ngIf="!updateProfile" style="padding: 8px;">{{userLName}}</td>
+                   <td *ngIf="updateProfile" style="padding: 8px;">
+                    <input [value]="userLName" class="form-control" />
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid #ccc;">
+                  <td style=" padding: 8px;">Email : </td>
+                  <td *ngIf="!updateProfile" style="padding: 8px;">{{userEmail}}</td>
+                   <td *ngIf="updateProfile" style="padding: 8px;">
+                    <input [value]="userEmail" class="form-control" />
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid #ccc;">
+                  <td style="padding: 8px;">User Type : </td>
+                  <td style="padding: 8px;">{{userRole}}</td>
+                </tr>
+              </table>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card mt-4" style="height:100px">
+          <div class="card-body _uploadFile">
+            <div class="user-container">
+              <input type="file" #fileInput name="" [disabled]="!updateProfile"  id="_profileImage" (change)="addImage($event)">
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
-
 </div>

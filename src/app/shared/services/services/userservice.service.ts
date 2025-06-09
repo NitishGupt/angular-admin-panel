@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserserviceService {
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor() { }
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   currentUser = this.currentUserSubject.asObservable();
 
@@ -23,10 +23,10 @@ export class UserserviceService {
     return this.currentUserSubject.value;
   }
 
-  getUserList() {
-    return this._httpClient.get<User[]>('http://localhost:3000/api/users');
-  }
-  getUserById(id: string) {
-     return this._httpClient.get<User>(`http://localhost:3000/api/users/${id}`);
-  }
+  // getUserList() {
+  //   return this._httpClient.get<User[]>('http://localhost:3000/api/users');
+  // }
+  // getUserById(id: string) {
+  //    return this._httpClient.get<User>(`http://localhost:3000/api/users/${id}`);
+  // }
 }

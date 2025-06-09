@@ -1,5 +1,5 @@
-body {
- background-color:#eaf1f6 ; 
+body{
+    background-color:#eaf1f6 ;
 }
 
 .user-container {
@@ -41,6 +41,30 @@ body {
   margin: 10px;
 }
 
-body {
-  background-color: #ccc;
+
+
+._edit-profile,._update-profile,._cancel-update{
+  text-decoration: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: #583672;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+._update-profile:hover,._cancel-update:hover{
+  color:#fab6a8;
+}
+
+._pInfo{
+  font-size:17px;
+  font-weight: bold;
+}
+._outerDiv{
+  background-color: white;
+  padding:20px;
+  border-radius:5px;
 }
