@@ -1,5 +1,5 @@
 body {
-    background-color: #583672;
+    background-color: #583672 !important;
 }
 
 ._divLogin {
@@ -67,14 +67,14 @@ button {
     color: #fff;
     font-weight: 700;
 }
-input.form-control {
+input.form-control,select.form-control {
   border: none;
   border-bottom: 2px solid rgba(0,0,0,0.175); 
   border-radius: 0;
   box-shadow: none;
 }
 
-input.form-control:focus {
+input.form-control:focus,select.form-control:focus  {
   border-bottom: 2px solid rgba(0,0,0,0.175); 
   outline: none;
   box-shadow: none;

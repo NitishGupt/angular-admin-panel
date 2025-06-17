@@ -28,16 +28,16 @@ export class SizeService {
     )
   }
 
-  delSizeBuyId(id: string | number): Observable<any> {
-    return this._httpClient.delete('/api/sizes/' + id).pipe(catchError(error => {
+  delSizeById(id: string | number): Observable<void> {
+    return this._httpClient.delete<void>('/api/sizes/' + id).pipe(catchError(error => {
       console.error('error deleting size: ', error);
       return throwError(() => error)
     })
     )
   }
 
-  updateSizeById(id: string | number, size: Size): Observable<any> {
-    return this._httpClient.put<Size>('/api/size/' + id, size).pipe(catchError(error => {
+  updateSizeById(id: string | number, size: Size): Observable<Size> {
+    return this._httpClient.put<Size>('/api/sizes/' + id, size).pipe(catchError(error => {
       console.error('Error updating size: ', error);
       return throwError(() => error)
     })

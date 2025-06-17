@@ -1,9 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ReuseTableComponent } from '../../../../shared/reuse-table/reuse-table/reuse-table.component';
 import { FormArray, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { SizeService } from '../../../../shared/services/services/size/size.service';
+import { Size } from '../../../../shared/model/size';
+
 
 @Component({
   selector: 'app-size',
+  standalone:true,
   imports: [ReuseTableComponent, ReactiveFormsModule],
   templateUrl: './size.component.html',
   styleUrl: './size.component.css',
@@ -13,7 +17,8 @@ export class SizeComponent {
   columnDefs: any[] = [];
   logoData: any[] = [];
   sizeForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  sizes: Size[] = [];
+  constructor(private fb: FormBuilder, private _sizeService:SizeService) { }
   ngOnInit() {
 
     this.sizeForm = this.fb.group({
@@ -42,6 +47,20 @@ export class SizeComponent {
   handleRowClick(row: any) {
     console.log('Row clicked:', row);
   }
+// function to get all sizes from the service
+//   getAllSizes(): void {
+//   this._sizeService.getSizes().subscribe({
+//     next: (sizes: Size[]) => {
+//       this.sizes = sizes;
+//     },
+//     error: (err) => {
+//       console.error('Error fetching sizes', err);
+//     }
+//   });
+// }
+
+
+
   get f() {
     return this.sizeForm.controls;
   }

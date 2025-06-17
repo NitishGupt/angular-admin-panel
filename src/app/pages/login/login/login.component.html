@@ -30,6 +30,16 @@
 
                         <form [formGroup]="loginform" (ngSubmit)="onSubmitlog()">
                             <div class="ms-2">
+                                <select id="_userRole" class="form-control mt-2" formControlName="role">
+                                    <option value="">-- Select role --</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Vendor</option>
+                                    <option value="3">Customer</option>
+                                </select>
+                                 @if(f['role'].touched && f['role'].invalid){
+                                    <div><small class="error-message">Role is required</small></div>
+    
+                                }
                                 <input id="_userName" formControlName="logEmail" placeholder="User email"
                                     class="form-control mt-2" />
                                     @if(lf['logEmail'].touched && lf['logEmail'].invalid){
@@ -77,6 +87,14 @@
                                     class="form-control mt-2" />
                                 @if(f['email'].touched && f['email'].invalid){
                                 <div><small class="error-message">email is required</small></div>
+                                }
+                                <select id="_userRoleRegis" class="form-control mt-2" formControlName="role">
+                                    <option value="">-- Select role --</option>
+                                    <option value="2">Vendor</option>
+                                    <option value="3">Customer</option>
+                                </select>
+                                @if(f['role'].touched && f['role'].invalid){
+                                    <div><small class="error-message">Role is required</small></div>
                                 }
 
                                 <input id="__venPassword" [ngStyle]="{

@@ -13,7 +13,7 @@ import { User } from '../../../shared/model/user';
   imports: [CommonModule, FormsModule, RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None
 })
 
 export class LoginComponent {
@@ -21,6 +21,7 @@ export class LoginComponent {
   registrationForm!: FormGroup;
   loginform!: FormGroup;
   passwordMatch:boolean=true;
+  isRegistered: boolean = false;
   constructor(private fb: FormBuilder,
     private _authservice: UserserviceService,
     private router: Router) { }
@@ -28,14 +29,17 @@ export class LoginComponent {
   ngOnInit() {
 
     this.loginform = this.fb.group({
+      role:['',[Validators.required]],
       logEmail: ['guest', [Validators.required, Validators.email]],
       logPassword: ['123456', [Validators.required, Validators.minLength(6)]],
     });
 
+    
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      role: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -63,19 +67,31 @@ export class LoginComponent {
       this.markAllFieldsAsTouched(this.registrationForm);
       return;
     }
-
+    //checking for 'password' and 'confirmPassword' match
     if (this.registrationForm.value.password !== this.registrationForm.value.confirmPassword) {
       this.passwordMatch=false
       return;
     }
+    //creating new user object and sending to service registration
     const user: User = {
       id: 'V001',
       firstName: this.registrationForm.value.firstName,
       lastName: this.registrationForm.value.lastName,
       email: this.registrationForm.value.email,
       password: this.registrationForm.value.password,
-      role: 'vender'
+      role: this.registrationForm.value.role
     }
+    //service registration
+   this._authservice.registerUser(user).subscribe({
+    next: (res) => {
+      this.isRegistered = true; 
+      this.registrationForm.reset();
+    },
+    error: (err) => {
+      console.error('Registration failed', err);
+      this.isRegistered = false;
+    }
+  });
     console.log(user);
   }
 
